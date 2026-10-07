@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────────────────────────────────────────
+   THEME – colours & fonts live HERE only.
+   Colours are "R G B" triplets so Tailwind opacity (bg-brand/20) works.
+   Default theme = :root + [data-theme="party"]. Others are [data-theme="..."].
+   Picker button (top-right) switches between them; list: src/data/themes.js
+   ink-*   = page background (700 top → 900 bottom)   fg = main text
+   brand-* = main colour   accent = names/highlights   a1-a3 = wish card colours
+   The falling confetti / balloons use brand, accent, a1, a2, a3.
+   ─────────────────────────────────────────────────────────── */
+:root {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, Menlo, monospace;
+}
+
+:root, [data-theme="party"] {
+  --ink-900: 255 214 230;
+  --ink-800: 255 232 241;
+  --ink-700: 255 246 249;
+  --brand-50: 253 236 246;
+  --brand-100: 252 207 232;
+  --brand-200: 249 168 212;
+  --brand-300: 244 114 182;
+  --brand-400: 236 72 153;
+  --brand-500: 219 39 119;
+  --brand-600: 190 24 93;
+  --brand-700: 157 23 77;
+  --brand-800: 131 24 67;
+  --brand-900: 80 7 36;
+  --fg: 76 17 58;
+  --card: 255 255 255;
+  --deep: 76 17 58;
+  --onbrand: 255 255 255;
+  --accent: 126 34 206;
+  --a1: 219 39 119;
+  --a2: 245 158 11;
+  --a3: 124 58 237;
+  --bg: radial-gradient(50% 45% at 8% 6%, rgb(251 146 190 / .5), transparent 70%), radial-gradient(50% 50% at 95% 22%, rgb(253 224 150 / .55), transparent 70%), radial-gradient(60% 50% at 50% 105%, rgb(196 181 253 / .5), transparent 70%), linear-gradient(180deg, #fff9ee, #ffe3ee);
+}
+
+[data-theme="sky"] {
+  --ink-900: 186 230 253;
+  --ink-800: 224 242 254;
+  --ink-700: 240 249 255;
+  --brand-50: 255 241 242;
+  --brand-100: 255 228 230;
+  --brand-200: 254 205 211;
+  --brand-300: 253 164 175;
+  --brand-400: 251 113 133;
+  --brand-500: 225 29 72;
+  --brand-600: 190 18 60;
+  --brand-700: 159 18 57;
+  --brand-800: 136 19 55;
+  --brand-900: 76 5 25;
+  --fg: 12 53 96;
+  --card: 255 255 255;
+  --deep: 12 53 96;
+  --onbrand: 255 255 255;
+  --accent: 194 65 12;
+  --a1: 225 29 72;
+  --a2: 245 158 11;
+  --a3: 14 165 233;
+  --bg: radial-gradient(60% 40% at 20% 0%, rgb(255 255 255 / .75), transparent 70%), radial-gradient(60% 40% at 90% 100%, rgb(253 224 150 / .55), transparent 70%), linear-gradient(180deg, #b9e3fb, #e6f6ff 70%, #fff4d6);
+}
+
+[data-theme="sunrise"] {
+  --ink-900: 255 214 180;
+  --ink-800: 255 232 210;
+  --ink-700: 255 246 236;
+  --brand-50: 255 247 237;
+  --brand-100: 255 237 213;
+  --brand-200: 254 215 170;
+  --brand-300: 253 186 116;
+  --brand-400: 251 146 60;
+  --brand-500: 234 88 12;
+  --brand-600: 194 65 12;
+  --brand-700: 154 52 18;
+  --brand-800: 124 45 18;
+  --brand-900: 67 20 7;
+  --fg: 84 33 10;
+  --card: 255 255 255;
+  --deep: 84 33 10;
+  --onbrand: 255 255 255;
+  --accent: 190 24 93;
+  --a1: 234 88 12;
+  --a2: 236 72 153;
+  --a3: 202 138 4;
+  --bg: radial-gradient(50% 45% at 10% 5%, rgb(255 160 122 / .5), transparent 70%), radial-gradient(50% 50% at 95% 25%, rgb(250 190 230 / .5), transparent 70%), linear-gradient(180deg, #fff3e2, #ffd6ae);
+}
+
+[data-theme="lilac"] {
+  --ink-900: 221 208 255;
+  --ink-800: 238 230 255;
+  --ink-700: 250 247 255;
+  --brand-50: 242 235 253;
+  --brand-100: 226 212 251;
+  --brand-200: 200 172 247;
+  --brand-300: 174 133 244;
+  --brand-400: 148 93 240;
+  --brand-500: 124 58 237;
+  --brand-600: 104 49 199;
+  --brand-700: 79 37 152;
+  --brand-800: 55 26 104;
+  --brand-900: 33 16 64;
+  --fg: 46 22 96;
+  --card: 255 255 255;
+  --deep: 46 22 96;
+  --onbrand: 255 255 255;
+  --accent: 219 39 119;
+  --a1: 124 58 237;
+  --a2: 219 39 119;
+  --a3: 217 119 6;
+  --bg: radial-gradient(50% 45% at 10% 5%, rgb(167 139 250 / .5), transparent 70%), radial-gradient(50% 50% at 95% 20%, rgb(249 168 212 / .5), transparent 70%), radial-gradient(60% 50% at 50% 105%, rgb(147 197 253 / .5), transparent 70%), linear-gradient(180deg, #faf7ff, #e9defe);
+}
+
+[data-theme="mint"] {
+  --ink-900: 190 240 226;
+  --ink-800: 220 250 240;
+  --ink-700: 244 255 251;
+  --brand-50: 240 253 250;
+  --brand-100: 204 251 241;
+  --brand-200: 153 246 228;
+  --brand-300: 94 234 212;
+  --brand-400: 45 212 191;
+  --brand-500: 13 148 136;
+  --brand-600: 15 118 110;
+  --brand-700: 17 94 89;
+  --brand-800: 19 78 74;
+  --brand-900: 4 47 46;
+  --fg: 15 70 66;
+  --card: 255 255 255;
+  --deep: 15 70 66;
+  --onbrand: 255 255 255;
+  --accent: 225 29 72;
+  --a1: 13 148 136;
+  --a2: 244 63 94;
+  --a3: 217 119 6;
+  --bg: radial-gradient(50% 45% at 8% 8%, rgb(110 231 183 / .5), transparent 70%), radial-gradient(50% 50% at 95% 20%, rgb(251 182 206 / .5), transparent 70%), radial-gradient(60% 50% at 60% 105%, rgb(253 230 138 / .45), transparent 70%), linear-gradient(180deg, #f2fffb, #d3f7ee);
+}
+
+[data-theme="night"] {
+  --ink-900: 8 4 28;
+  --ink-800: 22 10 58;
+  --ink-700: 48 20 98;
+  --brand-50: 255 251 235;
+  --brand-100: 254 243 199;
+  --brand-200: 253 230 138;
+  --brand-300: 252 211 77;
+  --brand-400: 252 200 60;
+  --brand-500: 251 191 36;
+  --brand-600: 217 160 20;
+  --brand-700: 161 118 14;
+  --brand-800: 110 80 10;
+  --brand-900: 66 48 6;
+  --fg: 255 247 237;
+  --card: 26 12 60;
+  --deep: 14 6 40;
+  --onbrand: 40 20 4;
+  --accent: 255 128 200;
+  --a1: 251 191 36;
+  --a2: 236 72 153;
+  --a3: 56 189 248;
+  --bg: radial-gradient(60% 45% at 15% 0%, rgb(236 72 153 / .28), transparent 70%), radial-gradient(70% 45% at 85% 100%, rgb(251 191 36 / .2), transparent 70%), linear-gradient(180deg, #07031c 0%, #1b0a4a 60%, #3a1170 100%);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply h-full overflow-hidden bg-ink-900 font-sans text-fg antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+  :focus-visible {
+    @apply rounded-lg outline outline-2 outline-offset-4 outline-brand;
+  }
+  ::selection {
+    background: rgb(var(--brand-400) / 0.4);
+  }
+}
